@@ -287,7 +287,7 @@ CREATE TABLE `quanlytaikhoan` (
   `SDT` int(12) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `CMND` int(12) NOT NULL,
-  `PassWord` int(20) NOT NULL
+  `PassWord` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
