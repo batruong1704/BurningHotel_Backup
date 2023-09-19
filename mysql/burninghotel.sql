@@ -287,7 +287,7 @@ CREATE TABLE `quanlytaikhoan` (
   `SDT` int(12) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `CMND` int(12) NOT NULL,
-  `PassWord` int(20) NOT NULL
+  `PassWord` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -296,7 +296,7 @@ CREATE TABLE `quanlytaikhoan` (
 
 INSERT INTO `quanlytaikhoan` (`ID`, `HoTen`, `SDT`, `Email`, `CMND`, `PassWord`) VALUES
 (1, 'Trịnh Tiến Quang', 976708122, 'Trinhtienquang2002@gmail.com', 12312312, "admin"),
-(2, 'Bá Trường', 336004076, 'admin@gmail.com', 2142315, 1),
+(2, 'Bá Trường', 336004076, 'admin@gmail.com', 2142315, "admin"),
 (3, 'Thuy Dung', 976708123, 'dungnguyen@gmail.com', 2147483647, "admin"),
 (4, 'Minh Quang', 976708124, 'minho@gmail.com', 2147483646, "admin");
 -- --------------------------------------------------------
