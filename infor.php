@@ -16,7 +16,7 @@
 ?>
 <?php
       if(isset($_POST['btn'])){
-        $con = mysqli_connect("192.168.179.134","root","admin","baitaplonweb");
+        $con = mysqli_connect("localhost","root","admin","burninghotel");
                 if(!$con){
                    die("Kết nối không thành công");
                 }
@@ -110,7 +110,7 @@
 
       else{
                
-               $con = mysqli_connect("192.168.179.134","root","admin","baitaplonweb");
+               $con = mysqli_connect("localhost","root","admin","burninghotel");
                if(!$con){
                    die("Kết nối không thành công");
                }

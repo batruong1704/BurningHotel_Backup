@@ -74,7 +74,7 @@
                 $email=$_POST["email"];
                 $cmnd=$_POST["cmnd"];
                 $pass=$_POST["pass"];
-            $con=mysqli_connect("localhost","root","admin777.","burninghotel");
+            $con=mysqli_connect("localhost","root","admin","burninghotel");
             if(!$con){
                     echo"Kết nối thất bại";
                     return;
