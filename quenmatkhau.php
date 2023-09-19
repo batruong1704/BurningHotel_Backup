@@ -66,7 +66,7 @@
                 $sdt=$_POST['sdt'];
                 $passcu=$_POST['mkm'];
                 $passmoi=$_POST['nlmk'];
-                $con=mysqli_connect("localhost","root","admin777.","burninghotel");
+                $con=mysqli_connect("localhost","root","admin","burninghotel");
                 if(!$con){
                         echo"Kết nối thất bại";
                         return;
