@@ -279,21 +279,21 @@
 | `git checkout <commit>`            | Di chuyển HEAD và thư mục làm việc hiện tại đến commit đã chỉ định                    |
 
 - **Các lệnh xử lý:**
--- Xem lịch sử commit của một nhánh
-   ```
-   git log
-   ```
+     + Xem lịch sử commit của một nhánh:
+        ```
+        git log
+        ```
 
--- So sánh nhánh với nhánh khác
-   ```
-   git diff main..feature
-   ```
-Ví dụ, để so sánh nhánh hiện tại (ví dụ: "main") với một nhánh khác (ví dụ: "feature"), bạn có thể sử dụng:
+     + So sánh nhánh với nhánh khác
+        ```
+        git diff main..feature
+        ```
+     Ví dụ, để so sánh nhánh hiện tại (ví dụ: "main") với một nhánh khác (ví dụ: "feature"), bạn có thể sử dụng:
 
--- Xem thay đổi trên một commit cụ thể:
-   ```
-   git show <mã_commit>
-   ```
+     + Xem thay đổi trên một commit cụ thể:
+        ```
+        git show <mã_commit>
+        ```
 
 
 
