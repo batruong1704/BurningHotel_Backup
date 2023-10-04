@@ -21,10 +21,17 @@
 
 #### 2. **Cài đặt và cấu hình SSH**
 **2.1. Cài đặt**
-    ```bash
+- Cài đặt như sau:
+     ```bash
     sudo apt-get update
+    ```
+    ```bash
     sudo apt-get install openssh-server -y
+    ```
+    ```bash
     sudo systemctl start sshd
+    ```
+    ```bash
     sudo systemctl enable ssh
     ```
 - Để xác minh cài đặt thành công và SSH đang chạy, hãy sử dụng lệnh:
