@@ -251,28 +251,49 @@
 ===============================================================================================================================================================
 # 1. GIT
 ### 1.1. Nhánh và các vấn đề liên quan tới nhánh:
-- **Liệt kê tất cả các nhánh**:
+- **Branch**:
      ```
-     git branch
+     git branch `tuychon`
      ```
-Ngoài ra, bạn có thể thêm tùy chọn `-a` để hiển thị tất cả các nhánh cả ở local và remote (từ xa):
+| Tùy Chọn               | Mô Tả                                                                           |
+|-----------------------|---------------------------------------------------------------------------------|
+| git branch           | Hiển thị danh sách các nhánh local và đánh dấu nhánh hiện tại bằng một dấu '*' |
+| git branch -a        | Hiển thị tất cả các nhánh, bao gồm cả remote branches                            |
+| git branch -d <tên>  | Xóa một nhánh local (nếu không có thay đổi chưa được kết hợp)                 |
+| git branch -D <tên>  | Xóa một nhánh local mà không cần kiểm tra thay đổi                               |
+| git branch -m <tên_cũ> <tên_mới>  | Đổi tên của một nhánh local                                                   |
+| git branch -r        | Hiển thị danh sách các nhánh từ xa (remote branches)                             |
+| git branch -v        | Hiển thị danh sách các nhánh local với thông tin về commit gần nhất            |
+| git branch --set-upstream-to=<remote>/<tên> | Thiết lập theo dõi cho một nhánh local để theo dõi một nhánh từ xa |
+
+- **Checkout:**
      ```
-     git branch -a
+     git checkout `tuychon`
      ```
-- **Tạo nhánh:**
-     ```
-     git branch tennhanhmoi
-     ```
-- **Chuyển nhánh:**
-     ```
-     git checkout tennhanhmoi
-     ```
-*Tạo 1 nhánh và checkout nhanh:*
-     ```
-     git checkout -b tennhanhmoi
-     ```
-- **Thiết lập theo dõi cho nhánh từ xa**
-     ```
-     git branch --set-upstream-to=origin/ten_nhanh_moi ten_nhanh_moi
-     ```
+| Tùy Chọn           | Mô Tả                                                                                     |
+|-------------------|-------------------------------------------------------------------------------------------|
+| git checkout <tên_nhánh>         | Chuyển nhánh                                                                        |
+| git checkout -b <tên_nhánh>      | Tạo một nhánh mới và chuyển sang nhánh mới đó                                              |
+| git checkout -- <đường_dẫn_tệp>  | Loại bỏ thay đổi trên tệp đã chỉ định và khôi phục lại phiên bản trước đó của tệp   |
+| git checkout -f                  | Đặt lại các thay đổi chưa commit trong thư mục làm việc hiện tại                         |
+| git checkout <commit>            | Di chuyển HEAD và thư mục làm việc hiện tại đến commit đã chỉ định                    |
+
+- **Các lệnh xử lý:**
+     + Xem lịch sử commit của một nhánh:
+        ```
+        git log
+        ```
+
+     + So sánh nhánh với nhánh khác
+        ```
+        git diff main..feature
+        ```
+     Ví dụ, để so sánh nhánh hiện tại (ví dụ: "main") với một nhánh khác (ví dụ: "feature"), bạn có thể sử dụng:
+
+     + Xem thay đổi trên một commit cụ thể:
+        ```
+        git show <mã_commit>
+        ```
+
+
 
