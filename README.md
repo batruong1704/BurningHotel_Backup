@@ -284,10 +284,15 @@
         git log
         ```
 
-     + So sánh nhánh với nhánh khác
+     + So sánh nhánh với nhánh khác:
         ```
         git diff main..feature
         ```
+ 
+     + Xem sự khác biệt giữa các thay đổi đã staged và commit:
+          ```
+          git diff --staged
+          ```
      Ví dụ, để so sánh nhánh hiện tại (ví dụ: "main") với một nhánh khác (ví dụ: "feature"), bạn có thể sử dụng:
 
      + Xem thay đổi trên một commit cụ thể:
