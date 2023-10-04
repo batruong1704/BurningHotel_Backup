@@ -299,6 +299,11 @@
         ```
         git show <mã_commit>
         ```
-
-
+- Xoá tệp ra khởi stage:
+     ```
+     git reset file1.txt    # Loại bỏ file1.txt khỏi staging area
+     git reset              # Loại bỏ tất cả các thay đổi đã staged
+     git restore --staged file1.txt  # Loại bỏ file1.txt khỏi staging area
+     git restore file1.txt           # Khôi phục file1.txt từ trạng thái đã staged hoặc trạng thái commit trước đó
+     ```
 
