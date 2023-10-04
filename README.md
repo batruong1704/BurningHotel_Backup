@@ -165,12 +165,12 @@
     sudo git clone https://github.com/batruong1704/BurningHotel.git
     ```
 #### 2. Export file .sql:
-    ```sql
-    mysql -u root -p
-    CREATE DATABASE burninghotel
-    USE burninghotel;
-    source /path/to/yourfile.sql;
-    ```
+```sql
+     mysql -u root -p
+     CREATE DATABASE burninghotel
+     USE burninghotel;
+     source /path/to/yourfile.sql;
+```
 #### 3. Cấu hình Virtual Host
 - Phân quyền cho tệp và thư mục:
     ```bash
