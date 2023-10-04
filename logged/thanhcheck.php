@@ -25,7 +25,7 @@
               Check-out
             </div>
             <div>
-              <input type="datetime-local" name="ngaydi" id="ngaydi" value="<?php echo $ngay?>" required>
+              <input type="datetime-local" name="ngaydi" id="ngaydi" value="<?php echo isset($ngay) ? $ngay : ''; ?>" required>
             </div>
           </div>
           <div class="col">
