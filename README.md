@@ -272,11 +272,11 @@
      ```
 | Tùy Chọn           | Mô Tả                                                                                     |
 |-------------------|-------------------------------------------------------------------------------------------|
-| `git checkout <tên_nhánh>`         | Chuyển nhánh                                                                        |
-| `git checkout -b <tên_nhánh>`      | Tạo một nhánh mới và chuyển sang nhánh mới đó                                              |
-| `git checkout -- <đường_dẫn_tệp>`  | Loại bỏ thay đổi trên tệp đã chỉ định và khôi phục lại phiên bản trước đó của tệp   |
-| `git checkout -f`                  | Đặt lại các thay đổi chưa commit trong thư mục làm việc hiện tại                         |
-| `git checkout <commit>`            | Di chuyển HEAD và thư mục làm việc hiện tại đến commit đã chỉ định                    |
+| git checkout <tên_nhánh>         | Chuyển nhánh                                                                        |
+| git checkout -b <tên_nhánh>      | Tạo một nhánh mới và chuyển sang nhánh mới đó                                              |
+| git checkout -- <đường_dẫn_tệp>  | Loại bỏ thay đổi trên tệp đã chỉ định và khôi phục lại phiên bản trước đó của tệp   |
+| git checkout -f                  | Đặt lại các thay đổi chưa commit trong thư mục làm việc hiện tại                         |
+| git checkout <commit>            | Di chuyển HEAD và thư mục làm việc hiện tại đến commit đã chỉ định                    |
 
 - **Các lệnh xử lý:**
      + Xem lịch sử commit của một nhánh:
