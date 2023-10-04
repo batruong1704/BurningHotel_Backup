@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./common/bootstrap-5.2.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/doimatkhau.css?v=<?php echo time(); ?>">
+    <link rel="icon" href="./public_html/favicon.ico" type="image/png">
 </head>
 <body>
 <header id="menu">

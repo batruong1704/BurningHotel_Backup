@@ -15,6 +15,7 @@
   <!-- <link rel="stylesheet" href="../css/style.css"> -->
   <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>" type='text/css'>
   <link rel="stylesheet" href="../css/trangchu1.css?v=<?php echo time(); ?>" type='text/css'>
+  <link rel="icon" href="./public_html/favicon.ico" type="image/png">
 </head>
 
 <body>

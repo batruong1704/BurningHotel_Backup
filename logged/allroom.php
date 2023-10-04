@@ -15,6 +15,7 @@
     <!-- JavaScript Bundle with Popper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="icon" href="./public_html/favicon.ico" type="image/png">
     <title>Document</title>
 </head>
 

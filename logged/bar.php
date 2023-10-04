@@ -12,6 +12,7 @@
     <!-- link slick -->
     <link rel="stylesheet" type="text/css" href="../common/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="../common/slick/slick-theme.css">
+    <link rel="icon" href="./public_html/favicon.ico" type="image/png">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/service.css">
 </head>

@@ -7,6 +7,7 @@
     <title>Contact us</title>
     <link rel="stylesheet" href="../css/contact.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="./public_html/favicon.ico" type="image/png">
     <script src="https://kit.fontawesome.com/a0ff9460a2.js" crossorigin="anonymous"></script>
     <!-- CSS only -->
     <link rel="stylesheet" href="../common/bootstrap-5.2.2-dist/css/bootstrap.min.css">

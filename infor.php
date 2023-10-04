@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../common/bootstrap-5.2.2-dist/css/bootstrap.min.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/infor.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="./public_html/favicon.ico" type="image/png">
     <title>Document</title>
 </head>
 <body>
