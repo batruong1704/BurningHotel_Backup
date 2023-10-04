@@ -306,4 +306,7 @@
      git restore --staged file1.txt  # Loại bỏ file1.txt khỏi staging area
      git restore file1.txt           # Khôi phục file1.txt từ trạng thái đã staged hoặc trạng thái commit trước đó
      ```
-
+- Hoàn tác:
+     ```
+     git revert <mã_commit>
+     ```
