@@ -196,7 +196,8 @@
         DocumentRoot /var/www/BurningHotel
          
          ErrorLog ${APACHE_LOG_DIR}/error.log
-         CustomLog ${APACHE_LOG_DIR}/access.log combined
+         CustomLog ${APAC
+     HE_LOG_DIR}/access.log combined
      </VirtualHost>
      ```
 
@@ -248,3 +249,7 @@
     http://burninghotel.com/
     ```
     ![Alt text](image-3.png)
+
+===============================================================================================================================================================
+# 1. GIT
+
