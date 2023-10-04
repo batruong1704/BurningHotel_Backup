@@ -1,7 +1,5 @@
-﻿# Bài tập lớn môn lập trình web cho đề tài booking hotel
+﻿# HƯỚNG DẪN SETUP CHƯƠNG TRÌNH
 ## A. Cài đặt máy ảo
-
-
 ## B. Cài đặt môi trường
 #### 1. **Sử dụng Git:**
      ```bash
@@ -252,4 +250,29 @@
 
 ===============================================================================================================================================================
 # 1. GIT
+### 1.1. Nhánh và các vấn đề liên quan tới nhánh:
+- **Liệt kê tất cả các nhánh**:
+     ```
+     git branch
+     ```
+Ngoài ra, bạn có thể thêm tùy chọn `-a` để hiển thị tất cả các nhánh cả ở local và remote (từ xa):
+     ```
+     git branch -a
+     ```
+- **Tạo nhánh:**
+     ```
+     git branch tennhanhmoi
+     ```
+- **Chuyển nhánh:**
+     ```
+     git checkout tennhanhmoi
+     ```
+*Tạo 1 nhánh và checkout nhanh:*
+     ```
+     git checkout -b tennhanhmoi
+     ```
+- **Thiết lập theo dõi cho nhánh từ xa**
+     ```
+     git branch --set-upstream-to=origin/ten_nhanh_moi ten_nhanh_moi
+     ```
 
