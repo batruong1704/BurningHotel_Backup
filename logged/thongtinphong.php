@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết phòng</title>
     <link rel="stylesheet" href="../css/thongtinphong.css?v=<?php echo time(); ?>" type='text/css'>
-    <link rel="icon" href="./public_html/favicon.ico" type="image/png">
+    <link rel="icon" href="../public_html/favicon.ico" type="image/png">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/a0ff9460a2.js" crossorigin="anonymous"></script>
     <!-- CSS only -->

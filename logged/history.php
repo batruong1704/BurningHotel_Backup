@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../common/slick/slick-theme.css">
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
-    <link rel="icon" href="./public_html/favicon.ico" type="image/png">
+    <link rel="icon" href="../public_html/favicon.ico" type="image/png">
 </head>
 <body>
     <?php

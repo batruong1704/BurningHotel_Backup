@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/infor.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
-    <link rel="icon" href="./public_html/favicon.ico" type="image/png">
+    <link rel="icon" href="../public_html/favicon.ico" type="image/png">
 </head>
 <body>
 
