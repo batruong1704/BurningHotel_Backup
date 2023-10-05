@@ -1,11 +1,11 @@
 ﻿# HƯỚNG DẪN SETUP CHƯƠNG TRÌNH
 ## A. Cài đặt máy ảo
 ## B. Cài đặt môi trường
-#### 1. **Sử dụng Git:**
-     ```bash
-     sudo apt update
-     sudo apt install git
-     ```
+#### 1. Sử dụng Git:
+```bash
+sudo apt update
+sudo apt install git
+```
 - Kiểm tra xem đã cài git thành công hay chưa:
 
     ```bash
