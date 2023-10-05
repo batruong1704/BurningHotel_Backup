@@ -400,3 +400,23 @@
    sudo su
    sudo su <username>
    ```
+# 3. SFTP trong SSH:
+##### Khi cài đặt OpenSSH Server, nó đã có sẵn sftp-server. Giao thức SFTP sử dụng để kết nối, duyệt file, tải file, upload giữa server và máy khách.
+=> Thực hiện kết nối:
+   ```
+   sftp username@idhost
+   ```
+| Lệnh            | Mô tả                                                      | Ví dụ                                     |
+|-----------------|------------------------------------------------------------|-------------------------------------------|
+| `ls`            | Liệt kê các tệp và thư mục trên máy từ xa.                 |                                           |
+| `cd`            | Di chuyển đến thư mục trên máy từ xa.                      |                                           |
+| `df [path]`     | Hiển thị thông tin về không gian đĩa trên máy từ xa.       |                                           |
+| `pwd`           | Hiển thị đường dẫn hiện tại trên máy từ xa.                |                                           |
+| `mkdir`         | Tạo một thư mục trên máy từ xa.                            |                                           |
+| `rename`        | Đổi tên hoặc di chuyển tệp/thư mục trên máy từ xa.         | `rename <tencu> <tenmoi>`                 |
+| `rm`            | Xóa tệp hoặc thư mục trên máy từ xa.                       |                                           |
+| `get`           | Tải tệp từ máy từ xa về máy cục bộ.                        | `get remote_file [local_file]`            |
+| `put`           | Tải tệp từ máy cục bộ lên máy từ xa.                       | `put local_file [remote_file]`            |
+| `exit` hoặc `quit` | Thoát khỏi phiên SFTP.                                  | `exit` hoặc `quit`                        |
+
+###### => Thêm tiền tố l đứng trước để thao tác trên local*.
