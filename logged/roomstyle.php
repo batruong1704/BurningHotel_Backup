@@ -175,7 +175,7 @@
 
         <?php
         if (isset($_POST["btn"])) { //sau khi ấn nút submit        
-            $con = mysqli_connect("localhost","root","admin","burninghotel");
+            $con = mysqli_connect("localhost","root","","burninghotel");
             if (!$con) {
                 die("Kết nối không thành công");
             }
@@ -233,7 +233,7 @@
         ?>
 
             <?php
-            $con = mysqli_connect("localhost","root","admin","burninghotel");
+            $con = mysqli_connect("localhost","root","","burninghotel");
             if (!$con) {
                 die("Kết nối không thành công");
             }

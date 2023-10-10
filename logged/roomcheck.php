@@ -50,7 +50,7 @@
             $ma=$_POST['ma'];
             $sdt=$_POST['sdt'];
             $_SESSION['ma']=$ma;
-            $con = mysqli_connect("localhost","root","admin","burninghotel");
+            $con = mysqli_connect("localhost","root","","burninghotel");
             if(!$con){
                 die("Kết nối không thành công");
             }

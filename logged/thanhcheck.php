@@ -51,7 +51,7 @@
             <div>
               <select name="category" id="category" >
               <?php
-                $con=mysqli_connect("localhost","root","admin","burninghotel");
+                $con=mysqli_connect("localhost","root","","burninghotel");
                 if(!$con){
                     echo'kết nối không thành công';
                 }

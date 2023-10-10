@@ -68,7 +68,7 @@
     <?php
        $tenroom=$_GET['TenPhong'];
    
-    $con = mysqli_connect("localhost","root","admin","burninghotel");
+    $con = mysqli_connect("localhost","root","","burninghotel");
     if(!$con){
         die("Kết nối không thành công");
     }
@@ -326,7 +326,7 @@
                 $ngaydi=$_SESSION['ngaydi'];
                 $ngaytt=date("Y/m/d h:i a", time());
 
-                $con=mysqli_connect("localhost","root","admin","burninghotel");
+                $con=mysqli_connect("localhost","root","","burninghotel");
                 if(!$con){
                     echo'Kết nối không thành công';
                 }

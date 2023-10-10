@@ -22,7 +22,7 @@
     include('header.php');
     ?>
       <?php    
-           $con = mysqli_connect("localhost","root","admin","burninghotel");
+           $con = mysqli_connect("localhost","root","","burninghotel");
                if(!$con){
                    die("Kết nối không thành công");
                }

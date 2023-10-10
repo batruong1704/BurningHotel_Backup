@@ -20,7 +20,7 @@
 <?php
     
     if(isset($_POST['btn'])){                             // Tại button sửa thông tin
-        $con = mysqli_connect("localhost","root","admin","burninghotel");
+        $con = mysqli_connect("localhost","root","","burninghotel");
                if(!$con){
                    die("Kết nối không thành công");
                }
@@ -96,7 +96,7 @@
             $sdt=$_POST["sdt"];
             $cmnd=$_POST["cmnd"];
             $pass=$_POST["pass"];
-            $con=mysqli_connect("localhost","root","admin","burninghotel");
+            $con=mysqli_connect("localhost","root","","burninghotel");
             if(!$con){
                 echo"Kết nối thất bại";
                 return;
@@ -118,7 +118,7 @@
         }
     
       else{
-                $con = mysqli_connect("localhost","root","admin","burninghotel");
+                $con = mysqli_connect("localhost","root","","burninghotel");
                 if(!$con){
                    die("Kết nối không thành công");
                 }

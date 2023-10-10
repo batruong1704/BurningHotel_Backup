@@ -75,7 +75,7 @@
                     <h5 class="mt-4">THỰC ĐƠN</h5> 
                     <h6 class="mt-3">Món nổi bật</h6>
                     <?php
-                    $con = mysqli_connect("localhost","root","admin","burninghotel");
+                    $con = mysqli_connect("localhost","root","","burninghotel");
                     if (!$con) {
                         echo 'Kết nối không thành công';
                     }
@@ -114,7 +114,7 @@
 
                     <h6 class="mt-3">Món khai vị</h6>
                     <?php
-                    $con = mysqli_connect("localhost","root","admin","burninghotel");
+                    $con = mysqli_connect("localhost","root","","burninghotel");
                     if (!$con) {
                         echo 'Kết nối không thành công';
                     }
@@ -153,7 +153,7 @@
 
                     <h6 class="mt-3">Món chính</h6>
                     <?php
-                    $con = mysqli_connect("localhost","root","admin","burninghotel");
+                    $con = mysqli_connect("localhost","root","","burninghotel");
                     if (!$con) {
                         echo 'Kết nối không thành công';
                     }
@@ -192,7 +192,7 @@
 
                     <h6 class="mt-3">Món tráng miệng</h6>
                     <?php
-                    $con = mysqli_connect("localhost","root","admin","burninghotel");
+                    $con = mysqli_connect("localhost","root","","burninghotel");
                     if (!$con) {
                         echo 'Kết nối không thành công';
                     }
@@ -231,7 +231,7 @@
 
                     <h6 class="mt-3">Đồ uống</h6>
                     <?php
-                    $con = mysqli_connect("localhost","root","admin","burninghotel");
+                    $con = mysqli_connect("localhost","root","","burninghotel");
                     if (!$con) {
                         echo 'Kết nối không thành công';
                     }
@@ -279,7 +279,7 @@
                 <div class="right p-0">
                     <h6 class="mt-3">Buffet</h6>
                     <?php
-                    $con = mysqli_connect("192.168.179.134", "root", "BurningHotel.", "burninghotel");
+                    $con = mysqli_connect("localhost","root", "", "burninghotel");
                     if (!$con) {
                         echo 'Kết nối không thành công';
                     }
