@@ -1,8 +1,9 @@
 #infor{
+    position: relative;
     background-color: #181A1B;
     color: white;
     font-family: Montserrat-SemiBold;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 #infor label{
     padding-left: 340px;
@@ -19,7 +20,7 @@
     padding: 10px;
     font-size: 15px;
 }
-#infor button{
+#btn{
     background-color: #937438;
     border: none;
     width: 450px;
@@ -27,4 +28,19 @@
     border-radius: 10px;
     color: white;
     margin: 50px auto;
+}
+.row button {
+    width: 25px;
+    height: 25px;
+    background-color: black;
+}
+#hienthi{
+    width: 300px;
+    height: 100px;
+    color: white;
+    font-family: Montserrat-SemiBold;
+    background-color: bisque;
+    display: none;
+    position: absolute;
+    top:45%;
 }

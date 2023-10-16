@@ -9,183 +9,140 @@
     <link rel="stylesheet" href="../common/bootstrap-5.2.2-dist/css/bootstrap.min.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/infor.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Document</title>
-    <link rel="icon" href="../public_html/favicon.ico" type="image/png">
+    <title>Thông tin cá nhân </title>
 </head>
 <body>
 
 <?php
     include('header.php');
-?>
-<?php
-    
-    if(isset($_POST['btn'])){                             // Tại button sửa thông tin
-        $con = mysqli_connect("localhost","root","admin","burninghotel");
-               if(!$con){
-                   die("Kết nối không thành công");
-               }
-               $sql = "SELECT * From quanlytaikhoan where SDT='".$_SESSION['sdt']."'";
-               $result = mysqli_query($con, $sql);
-               if(mysqli_num_rows($result) > 0){
-                  while($row = mysqli_fetch_array($result)){
-                      $ten=$row['HoTen'];
-                      $sdt=$row['SDT'];
-                      $email=$row['Email'];
-                      $cmnd=$row['CMND'];
-                      $pass=$row['PassWord'];
-                  }
-                }
-               
-        ?>
+    $con=mysqli_connect("localhost","root","","quanlykhachsan");
+    if(!$con){
+        echo"Kết nối thất bại";
+        return;
+    }
 
-        <section id="infor">
+    $sql = "SELECT * From quanlytaikhoan where ID='".$_SESSION['makhachhang']."'";
+    $result = mysqli_query($con, $sql);
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_array($result)){
+            $ten=$row['HoTen'];
+            $sdt=$row['SDT'];
+            $email=$row['Email'];
+            $cmnd=$row['CMND'];
+                     
+                  }
+               }
+               
+              ?>
+   <section id="infor">
         <div class="container">
             <h1 class="text-center">Thông Tin Cá Nhân</h1>
             <p class="text-center">Thông tin được cung cấp bên dưới sẽ được sử dụng để đăng nhập vào tài khoản của khách sạn cho nhu cầu đặt phòng của bạn.</p>
-            <form action="" method="POST">
+            <form action="" method="POST" >
                 <div class="row">
-                <div class="col-5">
-                    <label for="">Họ và tên: </label>
+                    <div class="col-5">
+                        <label for="">Họ và tên: </label>
+                    </div>
+                    <div class="col-7">
+                        <input type="text" name="ten" id="ten" value="<?php echo $ten ?>" readonly>
+                        <button type="button" onclick="editten()"><i class="fa fa-wrench" style="color: #EBB853; font-size: 25px"></i></button>
+                    </div>
+                    <div class="col-5">
+                        <label for="">Số Điện Thoại: </label>
+                    </div>
+                    <div class="col-7">
+                        <input type="text" name="sdt" id="sdt" value="<?php echo $sdt ?>" readonly>
+                        <button type="button" onclick="editsdt()"><i class="fa fa-wrench" style="color: #EBB853; font-size: 25px"></i></button>
+                    </div>
+                    <div class="col-5">
+                        <label for="">Email: </label>
+                    </div>
+                    <div class="col-7">
+                        <input type="text" name="email" id="email" value="<?php echo $email ?>" readonly>
+                        <button type="button"  onclick="editemail()"><i class="fa fa-wrench" style="color: #EBB853; font-size: 25px"></i></button>
+                    </div>
+                    <div class="col-5">
+                        <label for="">Số CMND: </label>
+                    </div>
+                    <div class="col-7">
+                        <input type="text" name="cmnd" id="cmnd" value="<?php echo $cmnd ?>" readonly >
+                        <button type="button"  onclick="editcmnd()"><i class="fa fa-wrench" style="color: #EBB853; font-size: 25px"></i></button>
+                    </div>
+                    
                 </div>
-                <div class="col-7">
-                    <input type="text" name="ten" id="" value="<?php echo $ten;?>" >
-                    <i class="fa fa-wrench" style="color: #EBB853; font-size: 25px; margin-left: 10px;"></i>
+                <div class="confirm d-flex">
+                  
+                        <button type="button" onclick="display()" id ="btn" name="btn"> Sửa đổi thông tin  </button>
                 </div>
-                <div class="col-5">
-                    <label for="">Số Điện Thoại: </label>
+                <div class="hienthi" id="hienthi">
+                    <label for="mk">Vui lòng nhập mật khẩu: </label>
+                    <input type="password" name="mk" id="mk" >
+                    <input type="submit" name="submit" value="OK" >
                 </div>
-                <div class="col-7">
-                    <input type="text" name="sdt" id="" value="<?php echo $sdt;?>" >
-                    <i class="fa fa-wrench" style="color: #EBB853; font-size: 25px; margin-left: 10px;"></i>
-                </div>
-                <div class="col-5">
-                    <label for="">Email: </label>
-                </div>
-                <div class="col-7">
-                    <input type="text" name="email" id="" value="<?php echo $email?>">
-                    <i class="fa fa-wrench" style="color: #EBB853; font-size: 25px; margin-left: 10px;"></i>
-                </div>
-                <div class="col-5">
-                    <label for="">Số CMND: </label>
-                </div>
-                <div class="col-7">
-                    <input type="text" name="cmnd" id="" value="<?php echo $cmnd?>" >
-                    <i class="fa fa-wrench" style="color: #EBB853; font-size: 25px; margin-left: 10px;"></i>
-                </div>
-                <div class="col-5">
-                    <label for="">Mật Khẩu: </label>
-                </div>
-                <div class="col-7">
-                    <input type="text" name="pass" id="" value="<?php echo $pass?>" >
-                    <i class="fa fa-wrench" style="color: #EBB853; font-size: 25px; margin-left: 10px;"></i>
-                </div>
-            </div> 
-            <div class="confirm d-flex">
-                <button type="submit" name="submit1"> Xác Nhận Thông Tin </button>
-            </div>
+                <script>
+                    function editsdt() {
+                        document.getElementById("sdt").removeAttribute("readonly");
+                        }
+                    function editten() {
+                        document.getElementById("ten").removeAttribute("readonly");
+                    }
+                    function editemail() {
+                        document.getElementById("email").removeAttribute("readonly");
+                    }
+                    function editcmnd() {
+                        document.getElementById("cmnd").removeAttribute("readonly");
+                        }
+                    function editpass() {
+                        document.getElementById("pass").removeAttribute("readonly");
+                    }
+                  
+                    function display() {
+                    document.getElementById("hienthi").style.display = "block";
+                    }
+                </script>
             </form>
-            </div>
-   
-   </section>
+        </div>
+    </section>
 
-        <?php
-        }
-        else if(isset($_POST['submit1'])){                                 // Tại button xác nhận thông tin
+    
+    <?php
+    if(isset($_POST['submit'])){
+        $matkhau = $_POST["mk"];
+        $sql1 = "SELECT * FROM quanlytaikhoan WHERE ID = '" . $_SESSION['makhachhang'] . "' AND PassWord = '" . $matkhau . "'";
+        $result = mysqli_query($con, $sql1);
+        if (mysqli_num_rows($result) == 0) {
+            echo '<script>
+                alert("Mật khẩu sai! Vui lòng kiểm tra lại");
+                window.location="javascript: history.go(-1)";
+                </script>';
+                }
+                
             $hoten=$_POST["ten"];
             $email=$_POST["email"];
             $sdt=$_POST["sdt"];
             $cmnd=$_POST["cmnd"];
-            $pass=$_POST["pass"];
-            $con=mysqli_connect("localhost","root","admin","burninghotel");
-            if(!$con){
-                echo"Kết nối thất bại";
-                return;
-            }
-            $sql = "UPDATE quanlytaikhoan SET HoTen='".$hoten."', SDT='".$sdt."', Email='".$email."', CMND='".$cmnd."',PassWord='".$pass."' WHERE SDT='".$_SESSION['sdt']."'";
+           
+            $sql="SELECT * FROM quanlytaikhoan WHERE Email = '" .$email. "' OR SDT = '" .$sdt. "' OR ID ='".$_SESSION['makhachhang']."' ";
             $result = mysqli_query($con, $sql);
-            if($result == true){
-                echo "<script>";
-                echo "alert('Cập nhật thành công !!!');";
-                echo "window.location.href='index1.php'";
-                echo "</script>";
+            if (mysqli_num_rows($result) > 1) {
+                echo '<script>
+                alert("Email hoặc mật khẩu đã tồn tại! Vui lòng kiểm tra lại");
+                window.location="javascript: history.go(-1)";
+                </script>';
             }
-            else {
-                echo "<script>";
-                echo "alert('Thất bại !!!');";
-                echo "window.location=javascript: history.go(-1)";
-                echo "</script>";
-            }
-        }
-    
-      else{
-                $con = mysqli_connect("localhost","root","admin","burninghotel");
-                if(!$con){
-                   die("Kết nối không thành công");
-                }
-                $sql = "SELECT * From quanlytaikhoan where SDT='".$_SESSION['sdt']."'";
+            else{
+                $sql = "UPDATE quanlytaikhoan SET HoTen='".$hoten."', SDT='".$sdt."', Email='".$email."', CMND='".$cmnd."' WHERE SDT='".$_SESSION['sdt']."'";
                 $result = mysqli_query($con, $sql);
-                if(mysqli_num_rows($result) > 0){
-                    while($row = mysqli_fetch_array($result)){
-                        $ten=$row['HoTen'];
-                        $sdt=$row['SDT'];
-                        $email=$row['Email'];
-                        $cmnd=$row['CMND'];
-                        $pass=$row['PassWord'];
-                    }
-               }
-               
-              ?>
-    <section id="infor">
-        <div class="container">
-            <h1 class="text-center">Thông Tin Cá Nhân</h1>
-            <p class="text-center">Thông tin được cung cấp bên dưới sẽ được sử dụng để đăng nhập vào tài khoản của khách sạn cho nhu cầu đặt phòng của bạn.</p>
-            <form action="" method="POST">
-                <div class="row">
-                <div class="col-5">
-                    <label for="">Họ và tên: </label>
-                </div>
-                <div class="col-7">
-                    <input type="text" name="ten" id="" value="<?php echo $ten;?>" disabled>
-                    <i class="fa fa-wrench" style="color: #EBB853; font-size: 25px; margin-left: 10px;"></i>
-                </div>
-                <div class="col-5">
-                    <label for="">Số Điện Thoại: </label>
-                </div>
-                <div class="col-7">
-                    <input type="text" name="sdt" id="" value="<?php echo $sdt;?>" disabled>
-                    <i class="fa fa-wrench" style="color: #EBB853; font-size: 25px; margin-left: 10px;"></i>
-                </div>
-                <div class="col-5">
-                    <label for="">Email: </label>
-                </div>
-                <div class="col-7">
-                    <input type="text" name="email" id="" value="<?php echo $email?>" disabled>
-                    <i class="fa fa-wrench" style="color: #EBB853; font-size: 25px; margin-left: 10px;"></i>
-                </div>
-                <div class="col-5">
-                    <label for="">Số CMND: </label>
-                </div>
-                <div class="col-7">
-                    <input type="text" name="cmnd" id="" value="<?php echo $cmnd?>" disabled>
-                    <i class="fa fa-wrench" style="color: #EBB853; font-size: 25px; margin-left: 10px;"></i>
-                </div>
-                <div class="col-5">
-                    <label for="">Mật Khẩu: </label>
-                </div>
-                <div class="col-7">
-                    <input type="text" name="pass" id="" value="<?php echo $pass?>" disabled>
-                    <i class="fa fa-wrench" style="color: #EBB853; font-size: 25px; margin-left: 10px;"></i>
-                </div>
-            </div> 
-            <div class="confirm d-flex">
-                <button type="submit" name="btn"> Sửa đổi thông tin  </button>
-            </div>
-            </form> 
-        </div>
-    </section>
-    <?php
+                if($result == true){
+                    echo "<script>";
+                    echo "alert('Cập nhật thành công !!!');";
+                    echo "window.location.href='../dangnhap.php'";
+                    echo "</script>";
+                }
+            }
+            
     }
-      
+
       include('footer.php');
     ?>
     

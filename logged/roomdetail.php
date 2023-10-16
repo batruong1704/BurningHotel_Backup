@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="../common/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="../common/slick/slick-theme.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" href="../public_html/favicon.ico" type="image/png">
   
 </head>
 
@@ -25,20 +24,20 @@
     include('header.php');
     ?>
     <?php
-        $con = mysqli_connect("localhost","root","admin","burninghotel");
+        $con = mysqli_connect("localhost","root","","quanlykhachsan");
         if(!$con){
             die("Kết nối không thành công");
         }
-        $TenPhong=$_GET['TenPhong'];
-        $sql = "SELECT * From chitietphong where  TenPhong='$TenPhong'";
+        $MaPhong=$_GET['MaPhong'];
+        $sql = "SELECT * From phong where  MaPhong='$MaPhong'";
         $result = mysqli_query($con, $sql);
         if(mysqli_num_rows($result)>0){
             while($row=mysqli_fetch_assoc($result)){
+                $KieuPhong=$row["KieuPhong"];
                 $LoaiGiuong=$row["LoaiGiuong"];
-                $SucChua=$row["NguoiMax"];
                 $TamNhin=$row["TamNhin"];
                 $DienTich=$row["DienTich"];
-                $NguoiMax=$row["NguoiMax"];
+                $SLMax=$row["SLMax"];
                 $IMG=$row['IMG'];
             }
         }
@@ -54,7 +53,7 @@
                     <div class="trangtri"></div>
                     <p class="m-0" style="font-size: 14px;font-family: Montserrat-Regular">Home - <span
                             style="color: #C89E4B;">Room</span></p>
-                    <h3 style="font-size:36px;font-family: Montserrat-Bold;"><?php echo $TenPhong?></h3>
+                    <h3 style="font-size:36px;font-family: Montserrat-Bold;"><?php echo $KieuPhong?></h3>
                     <div class="trangtri"></div>
                 </div>
             </div>
@@ -123,7 +122,7 @@
                     <p class="m-0">Diện tích phòng</p>
                     <span><?php echo $DienTich?><sup>2</sup></span>
                     <p class="mb-0 mt-4">Sức chứa tối đa</p>
-                    <span ><?php echo $NguoiMax?> người</span>
+                    <span ><?php echo $SLMax?> người</span>
                 </div>
             </div>
         </div>
@@ -185,7 +184,7 @@
             </div>
             
             <div class="d-flex justify-content-end">
-                <button><a style="text-decoration:none; color:white" href="payddn.php?TenPhong=<?php echo $TenPhong?>">BOOKING NOW</a></button>
+                <button><a style="text-decoration:none; color:white" href="payddn.php?MaPhong=<?php echo $MaPhong?>">BOOKING NOW</a></button>
                 
                
             </div>

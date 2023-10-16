@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="icon" href="../public_html/favicon.ico" type="image/png">
 </head>
 <body>
 <section id="checknow">
@@ -19,6 +18,7 @@
             </div>
             <div>
               <input type="datetime-local" name="ngayden" id="ngayden" value="" required>
+                
             </div>
           </div>
           <div class="col">
@@ -26,7 +26,7 @@
               Check-out
             </div>
             <div>
-              <input type="datetime-local" name="ngaydi" id="ngaydi" value="<?php echo isset($ngay) ? $ngay : ''; ?>" required>
+              <input type="datetime-local" name="ngaydi" id="ngaydi" value="" required>
             </div>
           </div>
           <div class="col">
@@ -35,12 +35,11 @@
             </div>
             <div>
               <select name="room" id="room">
-                <option value="1">1 người</option>
-                <option value="2">2 người</option>
-                <option value="3">3 người</option>
-                <option value="4">4 người</option>
-                <option value="5">5 người</option>
-                <option value="6">6 người</option>
+              <?php
+                for ($i = 1; $i <= 6; $i++) {
+                    echo "<option value='$i'>$i người</option>";
+                }
+            ?>
               </select>
             </div>
           </div>
@@ -51,18 +50,18 @@
             <div>
               <select name="category" id="category" >
               <?php
-                $con=mysqli_connect("localhost","root","admin","burninghotel");
-                if(!$con){
-                    echo'kết nối không thành công';
-                }
-                $sql="SELECT * FROM phong";
-                $result=mysqli_query($con,$sql);
-                if(mysqli_num_rows($result)>0){
-                    while ($row=mysqli_fetch_assoc($result)){
-                      echo"<option value ='".$row['ID']."'>".$row["LoaiPhong"]."</option>";
-                    }
-                }
-              ?> 
+                      $con=mysqli_connect("localhost","root","","quanlykhachsan");
+                      if(!$con){
+                          echo'kết nối không thành công';
+                      }
+                      $sql="SELECT DISTINCT LoaiPhong FROM phong";
+                      $result=mysqli_query($con,$sql);
+                      if(mysqli_num_rows($result)>0){
+                          while ($row=mysqli_fetch_assoc($result)){
+                            echo"<option value ='".$row['LoaiPhong']."'>".$row["LoaiPhong"]."</option>";
+                          }
+                      }
+                ?> 
               </select>
             </div>
           </div>

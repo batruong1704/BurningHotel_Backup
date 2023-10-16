@@ -15,27 +15,31 @@
     <link rel="stylesheet" type="text/css" href="../common/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="../common/slick/slick-theme.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" href="../public_html/favicon.ico" type="image/png">
+   
 </head>
 
 <body>
      <!-- header -->
      <?php
     include('header.php');
-    $tenphong=$_GET['TenPhong'];
+    $con = mysqli_connect("localhost","root","","quanlykhachsan");
+    if(!$con){
+        die("Kết nối không thành công");
+    }
+
     $tiendichvu=0;
  
     ?>
     <!-- Banner -->
-    <form action="payb2ddn.php?TenPhong=<?php echo $tenphong?>" method="POST">
+    <form action="payb2ddn.php?MaPhong=<?php echo $_GET['MaPhong']?>" method="POST">
     <section id="banner">
         <div class="container-fluid p-0 text-center">
             <div class="img">
                 <img src="../img/pay/banner.jpg" alt="" class="img-fluid">
                 <div class="box">
                     <div class="trangtri"></div>
-                    <p class="m-0" style="font-size: 14px;font-family: Montserrat-Regular">Home - 
-                    <span style="color: #EBB853;">Room List</span></p>
+                    <p class="m-0" style="font-size: 14px;font-family: Montserrat-Regular">Home - <span
+                            style="color: #C89E4B;">Room List</span></p>
                     <h3 style="font-size:36px;font-family: Montserrat-Bold;">Thanh Toán</h3>
                     <div class="trangtri"></div>
                 </div>
@@ -67,6 +71,7 @@
           </nav>
         </div>
     </section>
+
    
     <section id="form" class="pt-5">
         <div class="container">
@@ -74,8 +79,8 @@
             <div class="row">
                 <div class="col-6 ">
                     <div>
-                        <label for="" style="font-family: Montserrat-SemiBold;"> Nhập Họ và Tên như trong hộ chiếu 
-                        <span style="color: #937438;">*</span></label>
+                        <label for="" style="font-family: Montserrat-SemiBold;"> Nhập Họ và Tên như trong hộ chiếu <span
+                                style="color: #937438;">*</span></label>
                     </div>
                     <div><input type="text" name="" id="" value="<?php echo $_SESSION['ten'];?>"></div>
                 </div>
@@ -94,6 +99,7 @@
                     </div>
                     <div><input type="text" name="" id="" value="<?php echo $_SESSION['sdt'];?>"></div>
                 </div>
+
            
                 <div style="font-family: Montserrat-SemiBold;">
                     Nếu quý khách nhập địa chỉ thư điện tử và không hoàn thành việc Đặt phòng thì chúng tôi có thể nhắc
@@ -103,12 +109,14 @@
                     <input type="checkbox" name="datphongho" style="width: 22px; height: 22px;">
                     <label for="" class="ms-2" style="font-family: Montserrat-SemiBold;">Bạn Đặt phòng hộ người khác!</label>
                 </div>
+               
             </div>
         </div>
         <hr style="width: 80%; margin: 0 auto; border: 0; border-top: 5px solid;">
     </section>
 
     <section id="service">
+       
         <div class="container">
             <div class="ms-5 d-flex">
                 <div class="img d-flex">
@@ -119,26 +127,26 @@
             </div>
            
         <?php
-            $con = mysqli_connect("localhost","root","admin","burninghotel");
-            if(!$con){
-                die("Kết nối không thành công");
-            }
-            $sql = "SELECT * From dichvu";
-            $result = mysqli_query($con, $sql);
-            $phongs = array();
-            if(mysqli_num_rows($result) > 0){
-                while($row = mysqli_fetch_array($result)){
-                $phongs[]=array('DonGia'=>$row['DonGia'],'TenDichVu'=>$row['TenDichVu']);
-                }
-            } 
-        ?>
+                    
+           $sql = "SELECT * From dichvu";
+           $result = mysqli_query($con, $sql);
+           $dichvus = array();
+           if(mysqli_num_rows($result) > 0){
+               while($row = mysqli_fetch_array($result)){
+                $dichvus[]=array('DonGia'=>$row['DonGia'],'TenDichVu'=>$row['TenDichVu'], 'MaDichVu'=>$row['MaDichVu']);
+              }
+          } 
+          
+           ?>
             <div class="dichvu">
-            <?php foreach ($phongs as $key => $value) { ?>
+            <?php foreach ($dichvus as $key => $value) { ?>
                 <div class="d-flex mt-2">
-                    <input type="checkbox" name="dv[]" id="dv1"value="<?php echo $value['DonGia']?>"  style="width: 22px;height: 22px;">
-                    <label for="dv1" class="ms-2"><?php echo $value['TenDichVu']?></label>
+                    <input type="checkbox" name="dichvu[]" id="dichvu" value="<?php echo $value['DonGia'] . '-' . $value['MaDichVu']?>" style="width: 22px;height: 22px;">
+                    <label for="dichvu" id="tendv" class="ms-2"><?php echo $value['TenDichVu']?></label>
                 </div>
-                    <?php } ?>
+                 <?php
+                     }
+                 ?>
             </div>
         </div>
         <hr style="width: 80%; margin: 0 auto; border: 0; border-top: 5px solid;">
@@ -150,6 +158,7 @@
                 <div class="img d-flex">
                     <img src="../img/icon_HuyPhong.png" alt="">
                 </div>
+                
                 <p class="mt-3 ms-2" style="font-size: 30px; font-family:Montserrat-Bold;">Chính Sách Huỷ Đặt Phòng</p>
             </div>
         </div>
@@ -161,14 +170,14 @@
                             style="background-color: #181A1B; color: white; font-family: Montserrat-SemiBold;"
                             type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
                             aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                Huỷ phòng có thu phí
+                            Huỷ phòng có thu phí
                         </button>
                     </h2>
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                         aria-labelledby="panelsStayOpen-headingOne">
                         <div class="accordion-body"
                             style="background-color: #181A1B; color: white;font-family:Montserrat-Regular;">
-                                Nếu hủy bỏ hoặc sửa đổi trước 3 ngày so với ngày đến khách sạn, bạn sẽ không bị tính phí.
+                            Nếu hủy bỏ hoặc sửa đổi trước 3 ngày so với ngày đến khách sạn, bạn sẽ không bị tính phí.
                         </div>
                     </div>
                 </div>
@@ -178,17 +187,19 @@
                             style="background-color: #181A1B; color: white;font-family: Montserrat-SemiBold;"
                             type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
                             aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                Huỷ phòng không có thu phí
+                            Huỷ phòng không có thu phí
                         </button>
                     </h2>
                     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-                        aria-labelledby="panelsStayOpen-headingTwo" >
+                        aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body"
-                            style="background-color: #181A1B; color: white; font-family:Montserrat-Regular; text-align: justify;">
+                            style="background-color: #181A1B; color: white; font-family:Montserrat-Regular;">
                             Nếu hủy bỏ hoặc sửa đổi muộn hơn 3 ngày trước ngày đến khách sạn, bạn sẽ phải trả số tiền
-                            cọc khi đặt phòng đối với khách hàng thanh toán trả sau.
+                            cọc
+                            khi đặt phòng đối với khách hàng thanh toán trả sau.
                             Đối với khách hàng đã thanh toán toàn bộ giá trị đặt phòng bằng các phương thức thanh toán
-                            khác, bạn sẽ được hoàn trả lại số tiền đã thanh toán sau khi trừ đi khoản phí tương đương.
+                            khác,
+                            bạn sẽ được hoàn trả lại số tiền đã thanh toán sau khi trừ đi khoản phí tương đương.
                         </div>
                     </div>
                 </div>
@@ -203,6 +214,7 @@
                 <div class="img d-flex">
                     <img src="../img/icon_UuDai.png" alt="">
                 </div>
+                
                 <p class="mt-3 ms-2" style="font-size: 30px; font-family:Montserrat-Bold;">Ưu Đãi</p>
             </div>
             <div class="ud">
@@ -213,10 +225,13 @@
                             <img src="../img/icon_HoanTra.png" alt="">
                         </div>
                         <div class="content">
-                            <p class="m-0" style="font-family: Montserrat-SemiBold;">Không rủi ro và được hoàn lại toàn bộ</p>
-                            <p class="m-0" style="font-family: Montserrat-SemiBold;">Huỷ trước 7 ngày kể từ ngày thanh toán quý khách sẽ không phải trả gì cả!</p>
+                            <p class="m-0" style="font-family: Montserrat-SemiBold;">Không rủi ro và được hoàn lại toàn
+                                bộ</p>
+                            <p class="m-0" style="font-family: Montserrat-SemiBold;">Huỷ trước 7 ngày kể từ ngày thanh toán
+                                quý khách sẽ không phải trả gì cả!</p>
                         </div>
                     </div>
+                   
                 </div>
 
                 <div class="row">
@@ -252,7 +267,7 @@
     
     <section id="tieptuc">
         <div class="container d-flex justify-content-end">
-            <button style="font-family: Montserrat-SemiBold; height:50px;width: 300px; background-color: #937438; color: white; border: none; border-radius: 3px;" type="submit" name="submit" >Tiếp Tục </button>
+            <button style="font-family: Montserrat-SemiBold; height:50px;width: 300px; background-color: #937438; color: white;" type="submit" name="submit" >Tiếp Tục </button>
         </div>      
     </section>
     </form>
